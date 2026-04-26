@@ -55,7 +55,7 @@ export default function Register() {
 
     try {
       setLoading(true);
-      await apiRequest("api/register", "POST", form);
+      await apiRequest("/register", "POST", form);
       alert("Registered successfully");
       navigate("/");
     } catch (err) {
