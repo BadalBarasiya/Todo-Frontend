@@ -9,15 +9,12 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  // ✅ Validation
   const validateForm = () => {
     const newErrors = {};
 
     if (!form.email) {
       newErrors.email = "Email is required";
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(form.email)
-    ) {
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(form.email)) {
       newErrors.email = "Invalid email format";
     }
 
@@ -36,7 +33,6 @@ export default function Login() {
     return newErrors;
   };
 
-  // ✅ Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -66,14 +62,11 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-purple-400 via-pink-400 to-indigo-500 px-4">
-
       <form
         onSubmit={handleSubmit}
         className="bg-white/90 backdrop-blur-lg p-8 rounded-3xl shadow-2xl w-full max-w-sm"
       >
-        <h2 className="text-2xl font-bold text-center mb-6">
-          🔐 Login
-        </h2>
+        <h2 className="text-2xl font-bold text-center mb-6">🔐 Login</h2>
 
         {/* Email */}
         <input
@@ -91,9 +84,7 @@ export default function Login() {
           }`}
         />
         {errors.email && (
-          <p className="text-red-500 text-sm mb-2">
-            {errors.email}
-          </p>
+          <p className="text-red-500 text-sm mb-2">{errors.email}</p>
         )}
 
         {/* Password */}
@@ -112,9 +103,7 @@ export default function Login() {
           }`}
         />
         {errors.password && (
-          <p className="text-red-500 text-sm mb-2">
-            {errors.password}
-          </p>
+          <p className="text-red-500 text-sm mb-2">{errors.password}</p>
         )}
 
         {/* Button */}
